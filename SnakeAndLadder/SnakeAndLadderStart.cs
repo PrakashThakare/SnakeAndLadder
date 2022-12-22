@@ -12,13 +12,40 @@ namespace SnakeAndLadder
         public void StartPosionZero()
         {
             Console.WriteLine("Enter Player name");
-            string sPlayer1 = Convert.ToString(Console.ReadLine());
+            string iPlayer1 = Convert.ToString(Console.ReadLine());
+       
+            int iPositionon = 0;
+            while (iPositionon <= 100)
+            {
+                Random random = new Random();
+                Console.ReadLine();
 
-            Random random = new Random();
-            int iDice = random.Next(1, 7);
+                int iDice = random.Next(1, 6);
+                iPositionon += iDice;
+                Console.WriteLine("Dice Rolled :{0} Position is {1}", +iDice, iPositionon);
 
-            Console.WriteLine("Dice Number Is :{0}", iDice);
+                if ((iPositionon == 99) || (iPositionon == 95) || (iPositionon == 87) || (iPositionon == 65)) // Snake
+                {
+                    iPositionon -= 17;
+                    Console.WriteLine("You Got Sneke Position is {0}", iPositionon);
+                }
+                else if ((iPositionon == 62) || (iPositionon == 54) || (iPositionon == 17))   // Snake
+                {
+                    iPositionon -= 9;
+                    Console.WriteLine("You Got Sneke Position is {0}", iPositionon);
+                }
+                else if ((iPositionon == 4) || (iPositionon == 9) || (iPositionon == 51) || (iPositionon == 40) || (iPositionon == 63) || (iPositionon == 51))// Ladder
+                {
+                    iPositionon += 13;
+                    Console.WriteLine("You Got Ladder Position is {0}", iPositionon);
+                }
+                else  if (iPositionon==24) // Ladder
+                {
+                    iPositionon += 48;
+                    Console.WriteLine("You Got Ladder Position is {0}", iPositionon);
+                }
 
+            }
         }
     }
 }
