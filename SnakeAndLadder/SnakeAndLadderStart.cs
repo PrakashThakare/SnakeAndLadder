@@ -11,8 +11,8 @@ namespace SnakeAndLadder
     {
         public void StartPosionZero()
         {
-            //Console.WriteLine("Enter Player name");
-            //string sPlayer1 = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Enter Player name");
+            string sPlayer1 = Convert.ToString(Console.ReadLine());
 
             Random random = new Random();
             int iDice = random.Next(1, 7);
