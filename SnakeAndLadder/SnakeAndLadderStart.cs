@@ -11,10 +11,13 @@ namespace SnakeAndLadder
     {
         public void StartPosionZero()
         {
-            Console.WriteLine("Enter Player name");
-            string sPlayer1 = Convert.ToString(Console.ReadLine());
-            int iPositionon = 0;
-            Console.WriteLine("Position is : {0}",iPositionon);
+            //Console.WriteLine("Enter Player name");
+            //string sPlayer1 = Convert.ToString(Console.ReadLine());
+
+            Random random = new Random();
+            int iDice = random.Next(1, 7);
+
+            Console.WriteLine("Dice Number Is :{0}", iDice);
 
         }
     }
