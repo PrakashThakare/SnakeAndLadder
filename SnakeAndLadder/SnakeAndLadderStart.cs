@@ -11,19 +11,19 @@ namespace SnakeAndLadder
     {
         public void StartPosionZero()
         {
+            int iPosition = 0;
+
             Console.WriteLine("Enter Player name");
             string iPlayer1 = Convert.ToString(Console.ReadLine());
-       
 
-            int iPosition = 0;
-            int iLastNo = 100;
             while (iPosition <= 100)
             {
                 Random random = new Random();
-
                 int iDice = random.Next(1, 6);
+
                 iPosition += iDice;
                 Console.WriteLine("Dice Rolled :{0} Position is {1}", +iDice, iPosition);
+
                 if(iPosition > 100)
                 {
                     iPosition = iPosition - iDice;
@@ -52,7 +52,7 @@ namespace SnakeAndLadder
                 }
                 else if (iPosition <= 0)
                 {
-                    iPosition = 0;
+                    iPosition = 0;   // reset
 
                 }
                else if (iPosition == 100)
@@ -60,8 +60,6 @@ namespace SnakeAndLadder
                     break;
                     
                 }
-                
-
             }
             Console.WriteLine("Winner is : " + iPlayer1);
         }
