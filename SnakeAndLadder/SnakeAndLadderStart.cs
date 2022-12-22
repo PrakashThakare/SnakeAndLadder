@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -11,7 +12,7 @@ namespace SnakeAndLadder
     {
         public void StartPosionZero()
         {
-            int iPosition = 0;
+            int iPosition = 0, iCount=0;
 
             Console.WriteLine("Enter Player name");
             string iPlayer1 = Convert.ToString(Console.ReadLine());
@@ -21,8 +22,11 @@ namespace SnakeAndLadder
                 Random random = new Random();
                 int iDice = random.Next(1, 6);
 
+                iCount++;
+                Console.WriteLine("Dice Rolled {0}",iCount);
+
                 iPosition += iDice;
-                Console.WriteLine("Dice Rolled :{0} Position is {1}", +iDice, iPosition);
+                Console.WriteLine("Dice Number is :{0} Position is {1}", +iDice, iPosition);
 
                 if(iPosition > 100)
                 {
@@ -61,7 +65,7 @@ namespace SnakeAndLadder
                     
                 }
             }
-            Console.WriteLine("Winner is : " + iPlayer1);
+            Console.WriteLine("Winner is : {0}\nTotal Number of times Dice Rolled : {1}", iPlayer1,iCount);
         }
     }
 }
