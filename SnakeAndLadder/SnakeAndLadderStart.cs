@@ -14,38 +14,56 @@ namespace SnakeAndLadder
             Console.WriteLine("Enter Player name");
             string iPlayer1 = Convert.ToString(Console.ReadLine());
        
-            int iPositionon = 0;
-            while (iPositionon <= 100)
+
+            int iPosition = 0;
+            int iLastNo = 100;
+            while (iPosition <= 100)
             {
                 Random random = new Random();
-                Console.ReadLine();
 
                 int iDice = random.Next(1, 6);
-                iPositionon += iDice;
-                Console.WriteLine("Dice Rolled :{0} Position is {1}", +iDice, iPositionon);
+                iPosition += iDice;
+                Console.WriteLine("Dice Rolled :{0} Position is {1}", +iDice, iPosition);
+                if(iPosition > 100)
+                {
+                    iPosition = iPosition - iDice;
+                    Console.WriteLine("Not Valid Please Tray Again {0}", iPosition);
 
-                if ((iPositionon == 99) || (iPositionon == 95) || (iPositionon == 87) || (iPositionon == 65)) // Snake
-                {
-                    iPositionon -= 17;
-                    Console.WriteLine("You Got Sneke Position is {0}", iPositionon);
                 }
-                else if ((iPositionon == 62) || (iPositionon == 54) || (iPositionon == 17))   // Snake
+                else if ((iPosition == 99) || (iPosition == 95) || (iPosition == 87) || (iPosition == 65)) // Snake
                 {
-                    iPositionon -= 9;
-                    Console.WriteLine("You Got Sneke Position is {0}", iPositionon);
+                    iPosition -= 17;
+                    Console.WriteLine("You Got Sneke Position is {0}", iPosition);
                 }
-                else if ((iPositionon == 4) || (iPositionon == 9) || (iPositionon == 51) || (iPositionon == 40) || (iPositionon == 63) || (iPositionon == 51))// Ladder
+                else if ((iPosition == 62) || (iPosition == 54) || (iPosition == 17))   // Snake
                 {
-                    iPositionon += 13;
-                    Console.WriteLine("You Got Ladder Position is {0}", iPositionon);
+                    iPosition -= 9;
+                    Console.WriteLine("You Got Sneke Position is {0}", iPosition);
                 }
-                else  if (iPositionon==24) // Ladder
+                else if ((iPosition == 4) || (iPosition == 9) || (iPosition == 51) || (iPosition == 40) || (iPosition == 63) || (iPosition == 51))// Ladder
                 {
-                    iPositionon += 48;
-                    Console.WriteLine("You Got Ladder Position is {0}", iPositionon);
+                    iPosition += 13;
+                    Console.WriteLine("You Got Ladder Position is {0}", iPosition);
                 }
+                else  if (iPosition==24) // Ladder
+                {
+                    iPosition += 48;
+                    Console.WriteLine("You Got Ladder Position is {0}", iPosition);
+                }
+                else if (iPosition <= 0)
+                {
+                    iPosition = 0;
+
+                }
+               else if (iPosition == 100)
+                {
+                    break;
+                    
+                }
+                
 
             }
+            Console.WriteLine("Winner is : " + iPlayer1);
         }
     }
 }
